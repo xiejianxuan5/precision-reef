@@ -3,80 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPS Coloration & Dynamic Spectrum | PrecisionReef Academy</title>
+    <title>Advanced SPS Coloration | PrecisionReef Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/design-system.css">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; line-height: 1.8; }
-        .prose h1, .prose h2, .prose h3 { color: #00f2fe; margin-top: 3rem; margin-bottom: 1.5rem; font-weight: 700; tracking: -0.02em; }
-        .prose p { color: #a1a1aa; margin-bottom: 1.5rem; font-weight: 300; font-size: 1.1rem; }
-        .code-block { background: #0a0a0a; padding: 2rem; border-radius: 16px; border: 1px solid #1a1a1a; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #4facfe; overflow-x: auto; margin: 2rem 0; }
-        .gradient-text { background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .accent-border { border-left: 4px solid #00f2fe; padding-left: 1.5rem; margin: 2rem 0; background: rgba(0, 242, 254, 0.03); padding-top: 1rem; padding-bottom: 1rem; }
+        .prose h2 { font-size: 2.25rem; margin-top: 4rem; margin-bottom: 2rem; color: #fff; }
+        .prose p { font-size: 1.125rem; line-height: 2; color: #94a3b8; margin-bottom: 2rem; font-weight: 300; }
+        .prose strong { color: #fff; font-weight: 500; }
+        .accent-block { border-left: 2px solid var(--color-reef-accent); padding: 2rem 0 2rem 3rem; margin: 4rem 0; font-style: italic; color: #fff; font-size: 1.5rem; }
+        .code-container { background: #020617; border: 1px solid rgba(255,255,255,0.05); padding: 2rem; border-radius: 24px; font-family: monospace; font-size: 0.875rem; color: var(--color-reef-accent); margin: 3rem 0; }
     </style>
 </head>
-<body class="bg-[#050505]">
-    <nav class="p-8 max-w-7xl mx-auto flex justify-between items-center border-b border-zinc-900 mb-20">
-        <a href="/" class="text-xl font-bold gradient-text tracking-tighter">PRECISIONREEF</a>
-        <a href="/guides.html" class="text-xs font-bold text-zinc-500 hover:text-white transition uppercase tracking-widest">Back to Academy</a>
+<body class="dark-emergence">
+    <nav class="glass-navbar p-6 px-12 flex justify-between items-center">
+        <a href="../index.html" class="text-2xl font-bold text-gradient tracking-tighter">PRECISIONREEF</a>
+        <a href="../stability.html" class="text-[10px] font-bold text-gray-500 hover:text-white transition uppercase tracking-[0.3em]">Back to Academy</a>
     </nav>
 
-    <article class="max-w-3xl mx-auto px-6 pb-40">
-        <header class="mb-20">
-            <div class="text-cyan-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Biology & Spectrum</div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tight">Advanced SPS Coloration: The Science of <span class="gradient-text">Dynamic Spectrum.</span></h1>
-            <div class="flex items-center space-x-4 text-zinc-500 text-sm">
+    <article class="pt-48 pb-40 max-w-4xl mx-auto px-8">
+        <header class="mb-24">
+            <div class="reveal text-reef-accent text-[10px] font-bold uppercase tracking-[0.4em] mb-6">Biology & Spectrum / Thesis 01</div>
+            <h1 class="reveal delay-1 text-5xl md:text-7xl font-medium mb-12 leading-[1.1] tracking-tight text-white">Advanced SPS Coloration: The Science of <span class="text-gradient">Dynamic Spectrum.</span></h1>
+            <div class="reveal delay-2 flex items-center space-x-6 text-gray-500 text-[10px] uppercase tracking-widest">
                 <span>Jan 30, 2026</span>
-                <span class="w-1 h-1 bg-zinc-800 rounded-full"></span>
-                <span>12 min read</span>
+                <span class="w-1 h-1 bg-gray-800 rounded-full"></span>
+                <span>15 min read</span>
+                <span class="w-1 h-1 bg-gray-800 rounded-full"></span>
+                <span>Category: Marine Biology</span>
             </div>
         </header>
         
-        <div class="prose">
-            <p class="text-xl text-white leading-relaxed font-light mb-12">For decades, the reef-keeping hobby has focused on PAR (Photosynthetically Active Radiation). But as we move into 2026, the data shows that static lighting is the primary cause of metabolic stagnation in Acropora and other high-end SPS corals.</p>
+        <div class="prose reveal delay-3">
+            <p class="text-2xl text-white leading-relaxed font-light mb-16">For decades, the reef-keeping hobby has focused on PAR. But as we move into 2026, data shows that static lighting is the primary cause of metabolic stagnation in Acropora.</p>
 
             <h2>The Limitations of Static Light</h2>
             <p>In the wild, corals are subjected to constantly shifting spectral qualities. Clouds, turbidity, and tidal depth changes create a dynamic "light dance" that prevents photo-inhibition. Traditional LED controllers offer "ramps," but they remain linear and predictable—exactly what nature is not.</p>
             
-            <div class="accent-border">
-                <h3 class="mt-0 text-white italic">"Corals don't just need light; they need the complexity of natural flux to trigger pigment production."</h3>
+            <div class="accent-block">
+                "Corals don't just need light; they need the complexity of natural flux to trigger pigment production."
             </div>
 
             <h2>PUR over PAR</h2>
-            <p>PONTIS prioritizes <strong>PUR (Photosynthetically Usable Radiation)</strong>. By isolating the exact absorption peaks of Chlorophyll A and C2, we eliminate the yellow-green spectrum that only serves to heat the water and promote algae growth. The result is a deeper, more iridescent fluorescence that is impossible to achieve with standard fixtures.</p>
+            <p>PONTIS prioritizes <strong>PUR (Photosynthetically Usable Radiation)</strong>. By isolating the exact absorption peaks of Chlorophyll A and C2, we eliminate the yellow-green spectrum that only serves to heat the water and promote algae growth.</p>
 
-            <h2 class="pt-10 border-t border-zinc-900">The Power of Automation</h2>
+            <h2 class="pt-20">The Automation Interface</h2>
             <p>One of the most requested features for the PONTIS system is the ability to sync with real-world weather stations. For our developer community, we've made this easy through MQTT. </p>
             
-            <details class="group mt-8">
-                <summary class="flex items-center justify-between p-4 bg-zinc-900/50 rounded-xl cursor-pointer hover:bg-zinc-900 transition border border-zinc-800">
-                    <span class="text-sm font-bold text-cyan-400">View Home Assistant Logic (Advanced)</span>
-                    <span class="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="code-block">
+            <div class="code-container">
 # Sync your tank with Great Barrier Reef weather data
 alias: "Reef: Real-time Cloud Cover Simulation"
 trigger:
   - platform: state
-    entity_id: sensor.great_barrier_reef_cloud_coverage
+    entity_id: sensor.gbr_cloud_coverage
 action:
   - service: mqtt.publish
     data:
       topic: "precisionreef/pontis/spectrum/adjust"
       payload: "{{ states('sensor.reef_weather_logic') }}"
-                </div>
-            </details>
+            </div>
 
             <h2>Conclusion</h2>
             <p>PrecisionReef's mission is to bridge the gap between laboratory science and home reef keeping. The PONTIS system isn't just a light; it's a metabolic engine for your ocean.</p>
         </div>
     </article>
 
-    <footer class="py-20 border-t border-zinc-900 text-center">
-        <div class="text-[10px] uppercase tracking-widest text-zinc-700 font-bold mb-4">Developed by PrecisionReef Labs</div>
-        <div class="flex justify-center space-x-6">
-            <a href="/" class="text-zinc-500 hover:text-white transition">Home</a>
-            <a href="/guides.html" class="text-zinc-500 hover:text-white transition">Academy</a>
+    <footer class="py-20 border-t border-white/5 text-center">
+        <div class="text-[10px] uppercase tracking-widest text-gray-700 font-bold mb-8">Developed by PrecisionReef Labs</div>
+        <div class="flex justify-center space-x-12">
+            <a href="../index.html" class="text-gray-500 hover:text-white transition text-xs uppercase tracking-widest">Home</a>
+            <a href="../stability.html" class="text-gray-500 hover:text-white transition text-xs uppercase tracking-widest">Academy</a>
         </div>
     </footer>
+
+    <script>
+        const lenis = new Lenis()
+        function raf(time) {
+          lenis.raf(time)
+          requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.body.style.setProperty('--mouse-x', `${x}%`);
+            document.body.style.setProperty('--mouse-y', `${y}%`);
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
 </body>
 </html>

@@ -1,0 +1,123 @@
+/* 
+  PrecisionReef Design System v1.1
+  Vision: Ultra-Luxury Tech / Deep Sea Sophistication
+  Focus: Optical depth, fluid motion, premium typography
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('https://fonts.cdnfonts.com/s/14883/NeueMontreal-Regular.woff') format('woff');
+}
+
+@layer base {
+  :root {
+    --color-abyss: #020617;        
+    --color-deep-sea: #0f172a;     
+    --color-reef-accent: #38bdf8;  
+    --color-glass-bg: rgba(15, 23, 42, 0.4);
+    --color-glass-border: rgba(255, 255, 255, 0.06);
+    
+    --font-heading: 'Neue Montreal', 'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  body {
+    background: #000;
+    color: #f8fafc;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 32px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-navbar {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-glass-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .btn-precision {
+    position: relative;
+    padding: 0.8rem 2.2rem;
+    border-radius: 9999px;
+    background: #fff;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+  }
+
+  .btn-precision:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.3);
+    background: var(--color-reef-accent);
+    color: #fff;
+  }
+
+  .btn-outline {
+    padding: 0.8rem 2.2rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-glass-border);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.4s ease;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #fff;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, var(--color-reef-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* Dark Emergence Mouse Follow */
+.dark-emergence {
+    position: relative;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.08) 0%, transparent 40%), #000;
+}
