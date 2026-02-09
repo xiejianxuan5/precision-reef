@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPS Coloration & Dynamic Spectrum | PrecisionReef Tech Paper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; line-height: 1.8; }
+        .prose h1, .prose h2 { color: #00f2fe; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
+        .prose p { color: #ccc; margin-bottom: 1.5rem; }
+        .code-block { background: #111; padding: 1.5rem; border-radius: 12px; border: 1px solid #333; font-family: monospace; color: #4facfe; overflow-x: auto; margin: 2rem 0; }
+        .gradient-text { background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="p-6 md:p-20 max-w-4xl mx-auto">
+    <a href="/" class="text-gray-500 hover:text-white mb-10 inline-block">← Back to Home</a>
+    
+    <article class="prose">
+        <h1 class="text-5xl mb-10 leading-tight">Advanced SPS Coloration: The Science of <span class="gradient-text">Dynamic Spectrum Simulation</span> with PONTIS</h1>
+        
+        <p class="text-xl italic text-gray-400">Published Jan 30, 2026 • By PrecisionReef Labs</p>
+
+        <h2>The Biological Bottleneck</h2>
+        <p>For decades, reef keepers have obsessed over PAR (Photosynthetically Active Radiation). However, 2026 research indicates that static PAR levels are a primary cause of <strong>Zooxanthellae stress</strong>. In the wild, corals are exposed to shifting spectral qualities dictated by tidal movements, turbidity, and atmospheric refraction.</p>
+        
+        <h2>PUR vs. PAR: A Critical Distinction</h2>
+        <p>PONTIS prioritizes <strong>PUR (Photosynthetically Usable Radiation)</strong>. By focusing energy specifically on the chlorophyll a and c2 absorption peaks, the PONTIS AI engine reduces heat waste while maximizing fluorescence—the vibrant "glow" every reefer chases.</p>
+
+        <h2>Native Home Assistant Automation</h2>
+        <p>To truly simulate the Great Barrier Reef, PONTIS allows for real-time MQTT data injection. Below is a sample automation for <strong>Home Assistant</strong> users to sync their PONTIS spectrum with real-world weather data:</p>
+
+        <div class="code-block">
+alias: "Reef: Real-time Cloud Cover Simulation"<br>
+trigger:<br>
+&nbsp;&nbsp;- platform: state<br>
+&nbsp;&nbsp;&nbsp;&nbsp;entity_id: sensor.great_barrier_reef_cloud_coverage<br>
+action:<br>
+&nbsp;&nbsp;- service: mqtt.publish<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;topic: "precisionreef/pontis/spectrum/adjust"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;payload: "{{ states('sensor.reef_weather_logic') }}"
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>The transition from "Timer-based" to "Logic-based" reefing is here. PrecisionReef's PONTIS doesn't just light your tank; it manages the metabolic health of your delicate ecosystem.</p>
+    </article>
+
+    <footer class="mt-20 py-10 border-t border-zinc-900 text-center text-gray-600">
+        &copy; 2026 PrecisionReef Labs. Pioneering Autonomous Reef Care.
+    </footer>
+</body>
+</html>
