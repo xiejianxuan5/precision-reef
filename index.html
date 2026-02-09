@@ -9,94 +9,108 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; transition: all 0.3s ease; }
-        .glass-card:hover { border-color: rgba(0, 242, 254, 0.5); transform: translateY(-5px); }
-        .modal { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(0, 242, 254, 0.3); transform: translateY(-5px); }
+        .modal { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
     </style>
-    <!-- GEO / Structured Data for AI Engines -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Yuzhao PONTIS Smart Controller",
-        "brand": { "@type": "Brand", "name": "PrecisionReef" },
-        "description": "Enterprise-grade autonomous reef management system. Native Home Assistant support with AI-driven parameter stabilization.",
-        "sku": "PR-PONTIS-2026",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "499.00",
-          "availability": "https://schema.org/PreOrder"
-        }
-      },
-      {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "CYAN-Reactor Automated Phyto-System",
-        "brand": { "@type": "Brand", "name": "PrecisionReef" },
-        "description": "Automated photobioreactor for continuous phytoplankton cultivation with integrated optical density sensors.",
-        "sku": "PR-CYAN-2026",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "299.00",
-          "availability": "https://schema.org/PreOrder"
-        }
-      },
-      {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "ISE Lab-Grade Sensor Suite",
-        "brand": { "@type": "Brand", "name": "PrecisionReef" },
-        "description": "Industrial-grade Ion-Selective Electrode sensors with galvanic isolation for extreme reef stability.",
-        "sku": "PR-ISE-2026",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "189.00",
-          "availability": "https://schema.org/ComingSoon"
-        }
-      }
-    ]
-    </script>
 </head>
 <body>
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto">
         <div class="text-2xl font-bold gradient-text tracking-tighter">PRECISIONREEF</div>
-        <div class="space-x-8 text-sm uppercase tracking-widest text-gray-400">
-            <a href="#" class="hover:text-cyan-400 transition">Hardware</a>
+        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">
+            <a href="#" class="hover:text-cyan-400 transition">Ecosystems</a>
             <a href="/guides.html" class="hover:text-cyan-400 transition">Logic Academy</a>
-            <a href="#" class="hover:text-cyan-400 transition">GitHub</a>
+            <a href="https://github.com/xiejianxuan5/precision-reef" target="_blank" class="hover:text-cyan-400 transition">GitHub</a>
         </div>
+        <button onclick="openModal()" class="text-xs font-bold border border-zinc-800 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">Pre-Order</button>
     </nav>
 
-    <header class="py-20 px-6 text-center max-w-4xl mx-auto">
-        <h1 class="text-6xl font-bold mb-6 leading-tight">Data-Driven <span class="gradient-text">Ecosystems.</span></h1>
-        <p class="text-xl text-gray-400 mb-10 leading-relaxed">Introducing PONTIS: The world's first predictive reef controller designed for the Matter era. Stop reacting to crashes. Start predicting stability.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <button onclick="openModal()" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-cyan-400 transition transform active:scale-95">Join the Waitlist</button>
-            <a href="/blog/sps-coloration.html" class="bg-transparent border border-gray-700 px-6 py-4 rounded-full font-bold hover:border-cyan-400 transition inline-block text-sm">SPS Science</a>
-            <a href="/blog/automated-phytoplankton.html" class="bg-transparent border border-gray-700 px-6 py-4 rounded-full font-bold hover:border-cyan-400 transition inline-block text-sm">Auto-Phyto</a>
-            <a href="/blog/reef-redundancy.html" class="bg-transparent border border-gray-700 px-6 py-4 rounded-full font-bold hover:border-cyan-400 transition inline-block text-sm">Logic & Redundancy</a>
-            <a href="/blog/industrial-sensors.html" class="bg-transparent border border-gray-700 px-6 py-4 rounded-full font-bold hover:border-cyan-400 transition inline-block text-sm">Industrial Sensors</a>
-            <a href="/blog/smart-reef-manifesto.html" class="bg-transparent border border-gray-700 px-6 py-4 rounded-full font-bold hover:border-cyan-400 transition inline-block text-sm">2026 Manifesto</a>
+    <header class="pt-32 pb-20 px-6 text-center max-w-4xl mx-auto">
+        <div class="inline-block px-4 py-1 border border-cyan-500/30 rounded-full text-[10px] uppercase tracking-widest text-cyan-400 mb-8 font-bold">Launch Edition 2026</div>
+        <h1 class="text-7xl font-bold mb-8 leading-[1.1] tracking-tight">Intelligence for the <span class="gradient-text">Living Ocean.</span></h1>
+        <p class="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto font-light">PrecisionReef creates autonomous life-support environments. Harnessing real-time data to protect your most delicate marine ecosystems.</p>
+        <div class="flex justify-center space-x-6">
+            <button onclick="openModal()" class="bg-white text-black px-10 py-5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition transform active:scale-95">Reserve PONTIS</button>
+            <a href="/guides.html" class="bg-transparent border border-zinc-800 px-10 py-5 rounded-full font-bold hover:border-gray-500 transition inline-block">Explore Academy</a>
         </div>
     </header>
 
+    <section class="max-w-7xl mx-auto px-6 py-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="glass-card aspect-video relative overflow-hidden flex items-center justify-center p-12 group">
+                <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-900/20 group-hover:opacity-100 opacity-50 transition-opacity"></div>
+                <div class="relative z-10 text-center">
+                    <!-- Conceptual Placeholder -->
+                    <div class="w-48 h-48 bg-zinc-900/80 rounded-3xl border border-zinc-800 shadow-2xl mx-auto flex flex-col justify-center overflow-hidden">
+                        <div class="w-full h-1 bg-cyan-500 mb-auto"></div>
+                        <div class="p-6">
+                            <div class="text-[8px] text-zinc-600 mb-2 font-mono">STATUS: OPTIMAL</div>
+                            <div class="h-12 w-full bg-zinc-800 rounded mb-2"></div>
+                            <div class="grid grid-cols-2 gap-1">
+                                <div class="h-4 bg-zinc-800 rounded"></div>
+                                <div class="h-4 bg-zinc-800 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-5xl font-bold mb-10 tracking-tight">Engineered for <br>Total Autonomy.</h2>
+                <div class="space-y-10">
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span> Predictive Analysis</h3>
+                        <p class="text-gray-500 font-light leading-relaxed">Our AI core doesn't just monitor; it anticipates. By analyzing parameter drift, PONTIS prevents instability before it impacts your reef.</p>
+                    </div>
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Home Assistant Native</h3>
+                        <p class="text-gray-500 font-light leading-relaxed">Seamless integration via Matter and MQTT. Manage your life-support system alongside your entire smart home ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal -->
     <div id="waitlistModal" class="modal flex items-center justify-center p-6">
-        <div class="glass-card max-w-md w-full p-10 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-6 text-gray-500 hover:text-white text-2xl">&times;</button>
-            <h2 class="text-3xl font-bold mb-4 gradient-text">Secure Early Access</h2>
-            <p class="text-gray-400 mb-8 text-sm">Join 1,200+ reefers waiting for the PONTIS v2.1 Batch. We'll notify you the moment we open pre-orders.</p>
+        <div class="glass-card max-w-md w-full p-12 relative border-zinc-800">
+            <button onclick="closeModal()" class="absolute top-6 right-8 text-zinc-600 hover:text-white text-3xl transition">&times;</button>
+            <h2 class="text-3xl font-bold mb-4 gradient-text tracking-tighter">Join the Circle</h2>
+            <p class="text-zinc-500 mb-10 text-sm leading-relaxed font-light">Be the first to know when our next batch of PONTIS controllers becomes available. No spam, just technical updates.</p>
             <form onsubmit="handleSubmit(event)">
-                <input type="email" required placeholder="Enter your email" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 mb-4 focus:border-cyan-400 outline-none transition text-white">
-                <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-cyan-500/20">Notify Me</button>
+                <input type="email" required placeholder="Email Address" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 mb-6 focus:border-cyan-500 outline-none transition text-white text-sm">
+                <button type="submit" class="w-full bg-white text-black font-bold py-4 rounded-2xl hover:bg-cyan-400 transition shadow-xl">Secure My Spot</button>
             </form>
-            <p id="successMsg" class="hidden text-green-400 mt-4 text-center text-sm">Welcome aboard! Check your inbox soon.</p>
+            <p id="successMsg" class="hidden text-cyan-400 mt-6 text-center text-sm font-bold">Welcome. Check your inbox.</p>
         </div>
     </div>
+
+    <footer class="pt-40 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="border-t border-zinc-900 pt-20 flex flex-col md:flex-row justify-between items-start space-y-10 md:space-y-0">
+            <div class="max-w-xs">
+                <div class="text-xl font-bold gradient-text mb-4">PRECISIONREEF</div>
+                <p class="text-zinc-600 text-sm font-light">Defining the standard for high-fidelity marine ecosystem management.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-20">
+                <div class="space-y-4">
+                    <div class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Explore</div>
+                    <ul class="text-sm space-y-3 text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition">Hardware</a></li>
+                        <li><a href="/guides.html" class="hover:text-white transition">Academy</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Company</div>
+                    <ul class="text-sm space-y-3 text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                        <li><a href="https://github.com/xiejianxuan5/precision-reef" class="hover:text-white transition">Source</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 text-center text-zinc-800 text-[10px] uppercase tracking-widest font-bold">
+            &copy; 2026 PrecisionReef Labs.
+        </div>
+    </footer>
 
     <script>
         function openModal() { document.getElementById('waitlistModal').style.display = 'flex'; }
@@ -106,60 +120,10 @@
             document.getElementById('successMsg').classList.remove('hidden');
             setTimeout(closeModal, 2000);
         }
-        // Close modal on outside click
         window.onclick = function(event) {
             let modal = document.getElementById('waitlistModal');
             if (event.target == modal) closeModal();
         }
     </script>
-
-    <section class="max-w-7xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="glass-card aspect-square relative overflow-hidden flex items-center justify-center p-12">
-                <!-- AI Generated Placeholder Concept -->
-                <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20"></div>
-                <div class="relative z-10 text-center">
-                    <div class="w-64 h-64 bg-zinc-800 rounded-3xl shadow-2xl border border-zinc-700 mx-auto mb-6 flex flex-col justify-center p-8">
-                        <div class="w-full h-2 bg-cyan-500 rounded-full mb-4 animate-pulse"></div>
-                        <div class="space-y-2">
-                            <div class="w-3/4 h-1 bg-zinc-600 rounded"></div>
-                            <div class="w-1/2 h-1 bg-zinc-600 rounded"></div>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest">PONTIS Core Prototype v2.1</p>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-4xl font-bold mb-8">Built for the <br><span class="text-cyan-400">Home Assistant</span> Purist.</h2>
-                <ul class="space-y-6">
-                    <li class="flex items-start">
-                        <div class="bg-cyan-500/10 p-2 rounded-lg mr-4"><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold mb-1">Native MQTT & Matter</h3>
-                            <p class="text-gray-400 text-sm">Seamless zero-config discovery in Home Assistant. Full local control, no cloud dependency.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div class="bg-cyan-500/10 p-2 rounded-lg mr-4"><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold mb-1">±0.1°C Laboratory Precision</h3>
-                            <p class="text-gray-400 text-sm">Custom-calibrated sensors designed for the unique challenges of high-salinity environments.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div class="bg-cyan-500/10 p-2 rounded-lg mr-4"><svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold mb-1">Predictive AI Fail-safes</h3>
-                            <p class="text-gray-400 text-sm">Real-time logic analyzes parameter drift to prevent hardware failures before they occur.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center border-t border-zinc-900 text-gray-600 text-sm">
-        &copy; 2026 PrecisionReef Labs. Pioneering Autonomous Reef Care.
-    </footer>
 </body>
 </html>

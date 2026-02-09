@@ -3,51 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPS Coloration & Dynamic Spectrum | PrecisionReef Tech Paper</title>
+    <title>SPS Coloration & Dynamic Spectrum | PrecisionReef Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; line-height: 1.8; }
-        .prose h1, .prose h2 { color: #00f2fe; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
-        .prose p { color: #ccc; margin-bottom: 1.5rem; }
-        .code-block { background: #111; padding: 1.5rem; border-radius: 12px; border: 1px solid #333; font-family: monospace; color: #4facfe; overflow-x: auto; margin: 2rem 0; }
+        .prose h1, .prose h2, .prose h3 { color: #00f2fe; margin-top: 3rem; margin-bottom: 1.5rem; font-weight: 700; tracking: -0.02em; }
+        .prose p { color: #a1a1aa; margin-bottom: 1.5rem; font-weight: 300; font-size: 1.1rem; }
+        .code-block { background: #0a0a0a; padding: 2rem; border-radius: 16px; border: 1px solid #1a1a1a; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #4facfe; overflow-x: auto; margin: 2rem 0; }
         .gradient-text { background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .accent-border { border-left: 4px solid #00f2fe; padding-left: 1.5rem; margin: 2rem 0; background: rgba(0, 242, 254, 0.03); padding-top: 1rem; padding-bottom: 1rem; }
     </style>
 </head>
-<body class="p-6 md:p-20 max-w-4xl mx-auto">
-    <a href="/" class="text-gray-500 hover:text-white mb-10 inline-block">← Back to Home</a>
-    
-    <article class="prose">
-        <h1 class="text-5xl mb-10 leading-tight">Advanced SPS Coloration: The Science of <span class="gradient-text">Dynamic Spectrum Simulation</span> with PONTIS</h1>
+<body class="bg-[#050505]">
+    <nav class="p-8 max-w-7xl mx-auto flex justify-between items-center border-b border-zinc-900 mb-20">
+        <a href="/" class="text-xl font-bold gradient-text tracking-tighter">PRECISIONREEF</a>
+        <a href="/guides.html" class="text-xs font-bold text-zinc-500 hover:text-white transition uppercase tracking-widest">Back to Academy</a>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pb-40">
+        <header class="mb-20">
+            <div class="text-cyan-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Biology & Spectrum</div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tight">Advanced SPS Coloration: The Science of <span class="gradient-text">Dynamic Spectrum.</span></h1>
+            <div class="flex items-center space-x-4 text-zinc-500 text-sm">
+                <span>Jan 30, 2026</span>
+                <span class="w-1 h-1 bg-zinc-800 rounded-full"></span>
+                <span>12 min read</span>
+            </div>
+        </header>
         
-        <p class="text-xl italic text-gray-400">Published Jan 30, 2026 • By PrecisionReef Labs</p>
+        <div class="prose">
+            <p class="text-xl text-white leading-relaxed font-light mb-12">For decades, the reef-keeping hobby has focused on PAR (Photosynthetically Active Radiation). But as we move into 2026, the data shows that static lighting is the primary cause of metabolic stagnation in Acropora and other high-end SPS corals.</p>
 
-        <h2>The Biological Bottleneck</h2>
-        <p>For decades, reef keepers have obsessed over PAR (Photosynthetically Active Radiation). However, 2026 research indicates that static PAR levels are a primary cause of <strong>Zooxanthellae stress</strong>. In the wild, corals are exposed to shifting spectral qualities dictated by tidal movements, turbidity, and atmospheric refraction.</p>
-        
-        <h2>PUR vs. PAR: A Critical Distinction</h2>
-        <p>PONTIS prioritizes <strong>PUR (Photosynthetically Usable Radiation)</strong>. By focusing energy specifically on the chlorophyll a and c2 absorption peaks, the PONTIS AI engine reduces heat waste while maximizing fluorescence—the vibrant "glow" every reefer chases.</p>
+            <h2>The Limitations of Static Light</h2>
+            <p>In the wild, corals are subjected to constantly shifting spectral qualities. Clouds, turbidity, and tidal depth changes create a dynamic "light dance" that prevents photo-inhibition. Traditional LED controllers offer "ramps," but they remain linear and predictable—exactly what nature is not.</p>
+            
+            <div class="accent-border">
+                <h3 class="mt-0 text-white italic">"Corals don't just need light; they need the complexity of natural flux to trigger pigment production."</h3>
+            </div>
 
-        <h2>Native Home Assistant Automation</h2>
-        <p>To truly simulate the Great Barrier Reef, PONTIS allows for real-time MQTT data injection. Below is a sample automation for <strong>Home Assistant</strong> users to sync their PONTIS spectrum with real-world weather data:</p>
+            <h2>PUR over PAR</h2>
+            <p>PONTIS prioritizes <strong>PUR (Photosynthetically Usable Radiation)</strong>. By isolating the exact absorption peaks of Chlorophyll A and C2, we eliminate the yellow-green spectrum that only serves to heat the water and promote algae growth. The result is a deeper, more iridescent fluorescence that is impossible to achieve with standard fixtures.</p>
 
-        <div class="code-block">
-alias: "Reef: Real-time Cloud Cover Simulation"<br>
-trigger:<br>
-&nbsp;&nbsp;- platform: state<br>
-&nbsp;&nbsp;&nbsp;&nbsp;entity_id: sensor.great_barrier_reef_cloud_coverage<br>
-action:<br>
-&nbsp;&nbsp;- service: mqtt.publish<br>
-&nbsp;&nbsp;&nbsp;&nbsp;data:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;topic: "precisionreef/pontis/spectrum/adjust"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;payload: "{{ states('sensor.reef_weather_logic') }}"
+            <h2 class="pt-10 border-t border-zinc-900">The Power of Automation</h2>
+            <p>One of the most requested features for the PONTIS system is the ability to sync with real-world weather stations. For our developer community, we've made this easy through MQTT. </p>
+            
+            <details class="group mt-8">
+                <summary class="flex items-center justify-between p-4 bg-zinc-900/50 rounded-xl cursor-pointer hover:bg-zinc-900 transition border border-zinc-800">
+                    <span class="text-sm font-bold text-cyan-400">View Home Assistant Logic (Advanced)</span>
+                    <span class="text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="code-block">
+# Sync your tank with Great Barrier Reef weather data
+alias: "Reef: Real-time Cloud Cover Simulation"
+trigger:
+  - platform: state
+    entity_id: sensor.great_barrier_reef_cloud_coverage
+action:
+  - service: mqtt.publish
+    data:
+      topic: "precisionreef/pontis/spectrum/adjust"
+      payload: "{{ states('sensor.reef_weather_logic') }}"
+                </div>
+            </details>
+
+            <h2>Conclusion</h2>
+            <p>PrecisionReef's mission is to bridge the gap between laboratory science and home reef keeping. The PONTIS system isn't just a light; it's a metabolic engine for your ocean.</p>
         </div>
-
-        <h2>Conclusion</h2>
-        <p>The transition from "Timer-based" to "Logic-based" reefing is here. PrecisionReef's PONTIS doesn't just light your tank; it manages the metabolic health of your delicate ecosystem.</p>
     </article>
 
-    <footer class="mt-20 py-10 border-t border-zinc-900 text-center text-gray-600">
-        &copy; 2026 PrecisionReef Labs. Pioneering Autonomous Reef Care.
+    <footer class="py-20 border-t border-zinc-900 text-center">
+        <div class="text-[10px] uppercase tracking-widest text-zinc-700 font-bold mb-4">Developed by PrecisionReef Labs</div>
+        <div class="flex justify-center space-x-6">
+            <a href="/" class="text-zinc-500 hover:text-white transition">Home</a>
+            <a href="/guides.html" class="text-zinc-500 hover:text-white transition">Academy</a>
+        </div>
     </footer>
 </body>
 </html>
