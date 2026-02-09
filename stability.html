@@ -12,7 +12,13 @@
         .wide-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .wide-grid {
+                gap: 2rem;
+            }
         }
 
         .article-card {
@@ -21,6 +27,7 @@
             overflow: hidden;
             height: 65vh;
             min-height: 500px;
+            display: flex; /* Ensure container is flex if needed, though content is absolute or relative */
         }
 
         @media (min-width: 1024px) {
@@ -36,36 +43,77 @@
             background-position: center;
             transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 0;
-            filter: saturate(0.4) brightness(0.35);
+            filter: saturate(0.6) brightness(0.5);
         }
 
         .article-card:hover .depth-bg {
-            transform: scale(1.05);
-            filter: saturate(0.8) brightness(0.5);
+            transform: scale(1.08);
+            filter: saturate(0.9) brightness(0.6);
         }
 
         .article-content {
             position: relative;
             z-index: 10;
             height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 4rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
         }
 
         .tag {
-            font-size: 9px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-            padding: 5px 14px;
+            letter-spacing: 0.25em;
+            padding: 6px 16px;
             border-radius: 100px;
             background: var(--color-reef-accent);
             color: white;
-            font-weight: 700;
+            font-weight: 800;
             width: fit-content;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .article-card h2 {
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .article-card p {
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .read-thesis {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-reef-accent);
+            display: flex;
+            items-center;
+            transition: all 0.3s ease;
+        }
+
+        .read-thesis:hover {
+            color: #fff;
+            transform: translateX(8px);
+        }
+
+        .read-thesis span {
+            display: inline-block;
+            margin-left: 1rem;
+            height: 1px;
+            width: 30px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .read-thesis:hover span {
+            width: 50px;
         }
     </style>
 </head>
@@ -91,9 +139,9 @@
                 <div class="article-content">
                     <div class="tag">Chemistry</div>
                     <h2 class="text-4xl md:text-6xl font-medium mb-6">The Blue Equilibrium</h2>
-                    <p class="text-gray-300 max-w-xl mb-10 font-light text-lg">Orchestrating the Nitrogen-Phosphorus symphony by moving beyond the fear of high nutrients.</p>
-                    <a href="blog/sps-coloration.html" class="text-[10px] font-bold uppercase tracking-widest text-reef-accent hover:text-white transition flex items-center">
-                        Read Thesis <span class="ml-4 h-px w-12 bg-reef-accent"></span>
+                    <p class="text-gray-300 max-w-xl font-light text-lg">Orchestrating the Nitrogen-Phosphorus symphony by moving beyond the fear of high nutrients.</p>
+                    <a href="blog/sps-coloration.html" class="read-thesis">
+                        Read Thesis <span></span>
                     </a>
                 </div>
             </div>
@@ -103,8 +151,8 @@
                 <div class="article-content">
                     <div class="tag">Biology</div>
                     <h2 class="text-4xl font-medium mb-6">Chromodynamics</h2>
-                    <p class="text-gray-300 mb-10 font-light text-lg">Coral coloration as an evolutionary language.</p>
-                    <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-reef-accent hover:text-white transition">Read Thesis →</a>
+                    <p class="text-gray-300 max-w-md font-light text-lg">Coral coloration as an evolutionary language.</p>
+                    <a href="#" class="read-thesis">Read Thesis <span></span></a>
                 </div>
             </div>
 
@@ -113,8 +161,8 @@
                 <div class="article-content">
                     <div class="tag">Photonics</div>
                     <h2 class="text-4xl md:text-6xl font-medium mb-6">Photonic Alchemy</h2>
-                    <p class="text-gray-300 max-w-2xl mb-10 font-light text-lg">Capturing the sun's digital twin using quantum spectrometry algorithms.</p>
-                    <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-reef-accent hover:text-white transition">Read Thesis →</a>
+                    <p class="text-gray-300 max-w-2xl font-light text-lg">Capturing the sun's digital twin using quantum spectrometry algorithms.</p>
+                    <a href="#" class="read-thesis">Read Thesis <span></span></a>
                 </div>
             </div>
 
